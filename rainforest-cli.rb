@@ -1,8 +1,8 @@
 class RainforestCli < Formula
   desc "Rainforest QA command line interface"
   homepage "https://github.com/rainforestapp/rainforest-cli"
-  url "https://bin.equinox.io/a/2HryZFko31r/rainforest-cli-2.16.0-darwin-amd64.tar.gz"
-  sha256 "b36e5022ce9664a355b60fdd0e308a4f8bbeb338ff505174cd365c3028cd01d9"
+  url "https://bin.equinox.io/a/4ANpxdTeURo/rainforest-cli-2.17.0-darwin-amd64.tar.gz"
+  sha256 "968dead9f25de0f9d0df0d8160b90773117c644eacad3679c5144362aee8cba5"
 
   def install
     bin.install "rainforest"
