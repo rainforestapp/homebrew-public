@@ -13,7 +13,7 @@ download_link, sha = parsed_data.xpath(osx_releases_xpath).first.xpath('div/a/@h
 puts download_link
 puts sha
 
-formulae_file = 'rainforest-cli.rb'
+formulae_file = 'Formula/rainforest-cli.rb'
 formulae = File.open(formulae_file, 'r').readlines
 formulae.each do |line|
   line.gsub!(/(?<=^  url ").*(?=")/, download_link)
