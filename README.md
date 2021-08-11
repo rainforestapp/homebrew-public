@@ -8,4 +8,4 @@ brew install rainforestapp/public/rainforest-cli
 
 # Development
 
-After making a new release of the [rainforest-cli](https://github.com/rainforestapp/rainforest-cli#release), run `get_equinox_url.rb` to find the new URL and SHA of the binary and update `rainforest-cli.rb` with them.
+After making a new release of the [rainforest-cli](https://github.com/rainforestapp/rainforest-cli#release), run `ruby script/update.rb` to find the new URL and SHA of the binary and update `Formula/rainforest-cli.rb` with them.
