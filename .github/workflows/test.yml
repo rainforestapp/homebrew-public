@@ -23,4 +23,4 @@ jobs:
             $URL \
             -H "Content-Type: application/json" \
             -H "Authorization: token $GITHUB_TOKEN" \
-            --data "{ \"body\": \"This update reported it's version as `$VERSION` 🤞\" }"
+            --data "{ \"body\": \"This update reported it's version as \`$VERSION\` 🤞\" }"
