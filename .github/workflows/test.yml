@@ -16,6 +16,7 @@ jobs:
         env:
           URL: ${{ github.event.pull_request.comments_url }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REF: ${{ github.event.pull_request.head.ref }}
         run: |
           VERSION=`rainforest --version --skip-update`
           echo $VERSION
@@ -24,4 +25,4 @@ jobs:
             $URL \
             -H "Content-Type: application/json" \
             -H "Authorization: token $GITHUB_TOKEN" \
-            --data "{ \"body\": \"This update reported it's version as \`$VERSION\` 🤞\" }"
+            --data "{ \"body\": \"This update reported its version as \`$VERSION\` and we're on branch \`$REF`\ 🤞\" }"
