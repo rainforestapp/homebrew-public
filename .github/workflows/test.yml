@@ -10,7 +10,7 @@ jobs:
       -
         name: Install rainforest-cli
         run: |
-          brew install ./Formula/rainforest-cli.rb
+          brew install --formula ./Formula/rainforest-cli.rb
       - name: Check rainforest works
         env:
           URL: ${{ github.event.pull_request.comments_url }}
