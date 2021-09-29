@@ -1,0 +1,26 @@
+on:
+  - push
+jobs:
+  install_formula:
+    runs-on: macos-11
+    steps:
+      -
+        name: Checkout
+        uses: actions/checkout@v2
+      -
+        name: Install rainforest-cli
+        run: |
+          brew install ./Formula/rainforest-cli.rb
+      - name: Check rainforest works
+        env:
+          URL: ${{ github.event.issue.comments_url }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          VERSION=`rainforest --version --skip-update`
+          echo $VERSION
+          curl \
+            -X POST \
+            $URL \
+            -H "Content-Type: application/json" \
+            -H "Authorization: token $GITHUB_TOKEN" \
+            --data "{ \"body\": \"This update will install '$VERSION' correctly 🤞\" }"
