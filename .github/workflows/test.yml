@@ -1,5 +1,5 @@
 on:
-  - push
+  - pull_request
 jobs:
   install_formula:
     runs-on: macos-11
@@ -13,7 +13,7 @@ jobs:
           brew install --formula ./Formula/rainforest-cli.rb
       - name: Check rainforest works
         env:
-          URL: ${{ github.event.push.comments_url }}
+          URL: ${{ github.event.pull_request.comments_url }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           VERSION=`rainforest --version --skip-update`
