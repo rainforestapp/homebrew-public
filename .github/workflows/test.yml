@@ -25,4 +25,4 @@ jobs:
             $URL \
             -H "Content-Type: application/json" \
             -H "Authorization: token $GITHUB_TOKEN" \
-            --data "{ \"body\": \"This update reported its version as \`$VERSION\` and we're on branch \`$REF`\ 🤞\" }"
+            --data "{ \"body\": \"This update reported its version as \`$VERSION\` and we're on branch \`$REF\` 🤞\" }"
