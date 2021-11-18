@@ -6,7 +6,11 @@ require 'open-uri'
 
 html = URI.open('https://github.com/rainforestapp/rainforest-cli/releases/latest')
 parsed_data = Nokogiri::HTML.parse(html)
-version = parsed_data.at_css('a[title^=v]').attribute('title').value.delete_prefix('v')
+version = parsed_data
+  .at_css('a[href^="/rainforestapp/rainforest-cli/releases/tag/v"]')
+  .attribute('href')
+  .value
+  .delete_prefix('/rainforestapp/rainforest-cli/releases/tag/v')
 filename = "rainforest-cli-#{version}-darwin-amd64.tar.gz"
 download_link = "https://github.com/rainforestapp/rainforest-cli/releases/download/v#{version}/#{filename}"
 checksums_link = "https://github.com/rainforestapp/rainforest-cli/releases/download/v#{version}/checksums.txt"
