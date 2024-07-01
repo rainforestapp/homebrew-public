@@ -2,16 +2,16 @@ on:
   - pull_request
 jobs:
   install_formula:
-    runs-on: macos-11
+    runs-on: macos-13
     steps:
-      - 
+      -
         name: Checkout
         uses: actions/checkout@v2
-      - 
+      -
         name: Install rainforest-cli
         run: |
           brew install --formula ./Formula/rainforest-cli.rb
-      - 
+      -
         name: Check rainforest works
         env:
           URL: ${{ github.event.pull_request.comments_url }}
