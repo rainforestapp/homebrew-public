@@ -2,15 +2,17 @@ on:
   - pull_request
 jobs:
   install_formula:
-    runs-on: macos-13
+    runs-on: macos-15-intel
     steps:
       -
         name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v6
       -
         name: Install rainforest-cli
         run: |
-          brew install --formula ./Formula/rainforest-cli.rb
+          brew tap --custom-remote rainforestapp/public $GITHUB_WORKSPACE
+          brew info rainforestapp/public/rainforest-cli
+          brew install rainforestapp/public/rainforest-cli
       -
         name: Check rainforest works
         env:
